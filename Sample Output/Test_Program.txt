@@ -1,0 +1,16 @@
+RISC-V Program
+
+Problem statement: Create an array in data memory starting at base address “0”. The array will hold 10 integer values 
+[1,2,3,4,5,6,7,8,9,10].Following instructions are stored in the instruction memory. Please execute the following program. 
+Please ensure that your timing graph should show the following values, PC, Instruction, regfile, alu and data memory.
+
+      addi  x31, x0, FFFFFFFF…F
+      addi  x29, x0, x0 
+      addi x28 x0 10
+Loop: ld    x5, 0 (x29) 	
+      xor   x5, x5, x31 	
+      sd    x5, 0 (x29) 	 
+      addi  x29, x29, 8
+      addi x28 x28 -1 	 
+BNE   x28, $zero, Loop
+Exit
